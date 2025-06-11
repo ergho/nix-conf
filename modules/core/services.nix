@@ -7,7 +7,7 @@
       enable = true;
       settings = {
         PermitRootLogin = "no";
-        PasswordAuthenticaton = "true";
+        PasswordAuthentication = "true";
       };
       ports = [22];
     };
