@@ -5,11 +5,11 @@
     EDITOR = "vim";
   }; 
 
-  nixpkgs =  {
-    config = {
-      allowUnfree = true;
-    };
-  };
+  #nixpkgs =  {
+  #  config = {
+  #    allowUnfree = true;
+  #  };
+  #};
   home.packages = with pkgs; [
     eza
     discord-ptb
