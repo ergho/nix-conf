@@ -17,8 +17,8 @@
           [ ./../home/default.desktop.nix ]
         else
           [ ./../home/home.nix ];
-      home.username = "$username";
-      home.homeDirectory = "/home/$username";
+      home.username = "${username}";
+      home.homeDirectory = "/home/${username}";
       home.stateVersion = "25.05";
       programs.home-manager.enable = true;
     };
