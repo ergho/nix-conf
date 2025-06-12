@@ -8,6 +8,7 @@
     ./network.nix
     ./packages.nix
     ./services.nix
+    ./steam.nix
     ./system.nix
     ./user.nix
     ./wayland.nix

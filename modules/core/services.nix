@@ -2,6 +2,7 @@
 
 {
   services = {
+    libinput.enable = true;
     fstrim.enable = true;
     openssh = {
       enable = true;
@@ -11,6 +12,7 @@
       };
       ports = [22];
     };
+    blueman.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;

@@ -9,6 +9,7 @@
     firefox.enable = true;
     hyprland.enable = true;
     hyprlock.enable = true;
+    seahorse.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
