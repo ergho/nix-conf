@@ -1,6 +1,9 @@
 { ... }:
 
 {
+  home.packages = with pkgs; {
+    hyprpolkitagent
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -12,6 +15,8 @@
       "$mainMod" = "SUPER";
       "exec-once" = [
         #"hypridle"
+	"systemctl --user start hyprpolkitagent"
+	"nm-applet --indicator"
         "waybar"
       ];
 
