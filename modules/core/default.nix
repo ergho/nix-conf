@@ -11,6 +11,7 @@
     ./steam.nix
     ./system.nix
     ./user.nix
+    ./virtualisation.nix
     ./wayland.nix
   ];
 }

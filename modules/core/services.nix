@@ -13,6 +13,7 @@
       ports = [22];
     };
     blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
