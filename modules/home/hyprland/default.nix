@@ -1,7 +1,8 @@
 { ... }:
 
 {
-  imports = [ ./hyprland.nix ];
-  #./binds.nix
-  #./hyprland.nix
+  imports = [ 
+    ./hyprland.nix 
+    ./hyprlock.nix
+  ];
 }
