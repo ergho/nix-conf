@@ -15,10 +15,16 @@
         "waybar"
       ];
 
-      env = [ 
+      monitor = [
+        "HDMI-A-1,1920x1080@60,0x0,1"
+        "DP-1,2560x1440@144,1920x0,1"
+        "DP-2,1920x1080@60,4480x0,1"
+      ];
+
+      env = [
         "NIXOS_OZONE_WL,1"
         "XCURSOR_SIZE,24"
-        "HYPRCURSOR_SIZE,24" 
+        "HYPRCURSOR_SIZE,24"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
@@ -26,7 +32,7 @@
 
       general = {
         gaps_in = 5;
-        gaps_out = 20;
+        gaps_out = 10;
         border_size = 2;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
@@ -91,7 +97,9 @@
         preserve_split = true;
       };
 
-      master = { new_status = "master"; };
+      master = {
+        new_status = "master";
+      };
 
       misc = {
         force_default_wallpaper = -1;
@@ -109,16 +117,19 @@
 
         sensitivity = 0;
 
-        touchpad = { natural_scroll = false; };
+        touchpad = {
+          natural_scroll = false;
+        };
       };
 
-      gestures = { workspace_swipe = true; };
+      gestures = {
+        workspace_swipe = true;
+      };
 
       device = {
         name = "epic-mouse-v1";
         sensitivity = -0.5;
       };
-
 
       bind = [
         "$mainMod, Q, exec, $terminal"

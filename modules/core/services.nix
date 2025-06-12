@@ -10,7 +10,7 @@
         PermitRootLogin = "no";
         PasswordAuthentication = true;
       };
-      ports = [22];
+      ports = [ 22 ];
     };
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;

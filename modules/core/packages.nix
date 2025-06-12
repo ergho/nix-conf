@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 {
   programs = {
@@ -23,6 +23,7 @@
     cliphist
     cowsay
     duf
+    discord-ptb
     eza
     file-roller
     htop
@@ -32,6 +33,7 @@
     lshw
     mpv
     nixfmt-rfc-style
+    path-of-building
     pavucontrol
     pciutils
     ripgrep
