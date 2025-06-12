@@ -11,7 +11,7 @@
       "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";
       "exec-once" = [
-        "hypridle"
+        #"hypridle"
         "waybar"
       ];
 

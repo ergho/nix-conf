@@ -3,9 +3,13 @@
 {
   fonts = {
     packages = with pkgs; [
-      nerd-fonts.fira-code
-      noto-fonts
       noto-fonts-emoji
+      noto-fonts-cjk-sans
+      font-awesome
+      symbola
+      material-icons
+      fira-code
+      fira-code-symbols
     ];
   };
 }

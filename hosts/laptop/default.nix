@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       ./hardware-configuration.nix
       ./../../modules/core
     ];
@@ -25,16 +25,11 @@
   security.rtkit.enable = true;
 
 
-  # Install firefox.
   programs.firefox.enable = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
     home-manager
-    hyprlock
-    hypridle
     kitty
     vim 
     wofi

@@ -8,11 +8,11 @@
   }; 
 
   imports = [
+    ./eza.nix
     ./hyprland
   ];
 
   home.packages = with pkgs; [
-    eza
     discord-ptb
     ripgrep
   ];
