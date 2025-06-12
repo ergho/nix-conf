@@ -4,6 +4,14 @@
     icons = "auto";
     enableBashIntegration = true;
     git = true;
+    extraOptions = [
+      "--group-directories-first"
+      "--no-quotes"
+      "--header"
+      "--git-ignore"
+      "--classify"
+      "--hyperlink"
+    ];
   };
   
   home.shellAliases = {

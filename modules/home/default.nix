@@ -9,11 +9,8 @@
 
   imports = [
     ./eza.nix
+    ./gh.nix
     ./hyprland
   ];
 
-  home.packages = with pkgs; [
-    discord-ptb
-    ripgrep
-  ];
 }
