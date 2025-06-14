@@ -107,23 +107,16 @@
       };
 
       input = {
-        kb_layout = "us";
-        kb_variant = "";
-        kb_model = "";
-        kb_options = "";
-        kb_rules = "";
+        kb_layout = "us,se";
+        kb_options = "grp:alt_shift_toggle";
 
         follow_mouse = 1;
 
         sensitivity = 0;
 
-        touchpad = {
-          natural_scroll = false;
-        };
-      };
-
-      gestures = {
-        workspace_swipe = true;
+        #touchpad = {
+        #  natural_scroll = false;
+        #};
       };
 
       device = {
@@ -191,6 +184,18 @@
         ", XF86AudioPrev, exec, playerctl previous"
       ];
 
+      workspace = [
+        "1, monitor:DP-1"
+        "2, monitor:DP-1"
+        "3, monitor:DP-1"
+        "4, monitor:DP-2"
+        "5, monitor:DP-2"
+        "6, monitor:DP-2"
+        "7, monitor:HDMI-A-1"
+        "8, monitor:HDMI-A-1"
+        "9, monitor:HDMI-A-1"
+        "0, monitor:DP-1"
+      ];
       windowrule = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"

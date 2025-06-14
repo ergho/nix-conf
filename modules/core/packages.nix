@@ -33,7 +33,6 @@
     lshw
     mpv
     nixfmt-rfc-style
-    path-of-building
     pavucontrol
     pciutils
     ripgrep
