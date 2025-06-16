@@ -16,6 +16,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
   };
 
   outputs =
@@ -24,6 +26,7 @@
       disko,
       nixpkgs,
       home-manager,
+      nix-flatpak,
       ...
     }@inputs:
     let
@@ -51,7 +54,10 @@
         };
         laptop = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/laptop ];
+          modules = [ 
+	    ./hosts/laptop
+	    nix-flatpak.nixosModules.nix-flatpak
+	  ];
           specialArgs = {
             host = "laptop";
             inherit self inputs username;

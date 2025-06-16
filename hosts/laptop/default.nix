@@ -27,9 +27,12 @@
 
   security.rtkit.enable = true;
 
-  programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
+    intel-media-driver
+    vaapiIntel
+    vaapiVdpau
+    libvdpau-va-gl
     git
     home-manager
     kitty
