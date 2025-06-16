@@ -23,6 +23,7 @@
     cliphist
     cowsay
     duf
+    discord
     discord-ptb
     eza
     file-roller
@@ -39,6 +40,7 @@
     unrar
     unzip
     usbutils
+    webcord
     wget
   ];
 }
