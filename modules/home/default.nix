@@ -8,6 +8,7 @@
   };
 
   imports = [
+    ./bat.nix
     ./eza.nix
     ./gh.nix
     ./hyprland
