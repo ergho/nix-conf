@@ -6,7 +6,6 @@
       enable = true;
       defaultEditor = true;
     };
-    firefox.enable = true;
     hyprland.enable = true;
     hyprlock.enable = true;
     seahorse.enable = true;

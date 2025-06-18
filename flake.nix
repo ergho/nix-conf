@@ -17,6 +17,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
   };
 
@@ -24,6 +29,7 @@
     {
       self,
       disko,
+      firefox-addons,
       nixpkgs,
       home-manager,
       nix-flatpak,
@@ -60,7 +66,7 @@
           ];
           specialArgs = {
             host = "laptop";
-            inherit self inputs username;
+            inherit self inputs username firefox-addons;
           };
         };
       };
