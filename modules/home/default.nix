@@ -12,6 +12,7 @@
     ./eza.nix
     ./gh.nix
     ./hyprland
+    ./tmux.nix
+    ./waybar
   ];
-
 }

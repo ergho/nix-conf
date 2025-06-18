@@ -54,10 +54,10 @@
         };
         laptop = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ 
-	    ./hosts/laptop
-	    nix-flatpak.nixosModules.nix-flatpak
-	  ];
+          modules = [
+            ./hosts/laptop
+            nix-flatpak.nixosModules.nix-flatpak
+          ];
           specialArgs = {
             host = "laptop";
             inherit self inputs username;

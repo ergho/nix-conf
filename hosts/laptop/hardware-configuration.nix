@@ -24,8 +24,12 @@
     "rtsx_pci_sdmmc"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [
+    "kvm-intel"
+    "nvidia"
+  ];
   boot.extraModulePackages = [ ];
+  boot.blacklistedKernelModules = [ "nouveau" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/0e738cd0-dfc3-48fb-8140-a8dab659d58c";

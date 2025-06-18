@@ -7,6 +7,7 @@
       general = {
         after_sleep_cd = "hyprctl dispatch dpms on";
         before_sleep_cmd = "loginctl lock-session";
+	ignore_dbus_inhibit = true;
         lock_cmd = "pidof hyprlock || hyprlock";
       };
       listener = [
