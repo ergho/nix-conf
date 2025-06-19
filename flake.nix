@@ -52,6 +52,7 @@
           modules = [
             ./hosts/desktop
             inputs.disko.nixosModules.disko
+            nix-flatpak.nixosModules.nix-flatpak
           ];
           specialArgs = {
             host = "desktop";
@@ -66,7 +67,7 @@
           ];
           specialArgs = {
             host = "laptop";
-            inherit self inputs username firefox-addons;
+            inherit self inputs username;
           };
         };
       };

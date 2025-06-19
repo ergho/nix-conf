@@ -7,9 +7,12 @@
         force = true;
 	default = "ddg";
 	engines = {
-	  bind.metaData.hidden = true;
+	  bing.metaData.hidden = true;
 	};
       };
+      extension.packages = with pkgs.inputs.firefox-addons; [
+        ublock-origin
+      ];
     };
   };
 }
