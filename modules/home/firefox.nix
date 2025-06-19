@@ -10,8 +10,11 @@
 	  bing.metaData.hidden = true;
 	};
       };
-      extension.packages = with pkgs.inputs.firefox-addons; [
+      extensions.packages = with pkgs.inputs.firefox-addons; [
         ublock-origin
+	darkreader
+	vimium
+	bitwarden
       ];
     };
   };

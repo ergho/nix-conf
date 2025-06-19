@@ -23,6 +23,11 @@
     };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
+
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -33,9 +38,11 @@
       nixpkgs,
       home-manager,
       nix-flatpak,
+      nvf,
       ...
     }@inputs:
     let
+    inherit (self) outputs;
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -46,6 +53,7 @@
 
     in
     {
+      overlays = import ./overlays {inherit inputs outputs;};
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -56,7 +64,7 @@
           ];
           specialArgs = {
             host = "desktop";
-            inherit self inputs username;
+            inherit self inputs outputs username;
           };
         };
         laptop = nixpkgs.lib.nixosSystem {
@@ -67,9 +75,14 @@
           ];
           specialArgs = {
             host = "laptop";
-            inherit self inputs username;
+            inherit self inputs outputs username;
           };
         };
       };
+      packages."x86_64-linux".neovim-config =
+        (nvf.lib.neovimConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [ ./pkgs/neovim.nix ];
+        }).neovim;
     };
 }

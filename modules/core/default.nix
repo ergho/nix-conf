@@ -5,6 +5,7 @@
     ./flatpak.nix
     ./fonts.nix
     ./hardware.nix
+    ./neovim.nix
     ./network.nix
     ./packages.nix
     ./services.nix

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, outputs, ... }:
 
 {
   programs = {
@@ -16,6 +16,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = builtins.attrValues outputs.overlays;
 
   environment.systemPackages = with pkgs; [
     brightnessctl
