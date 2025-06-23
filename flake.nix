@@ -42,18 +42,18 @@
       ...
     }@inputs:
     let
-    inherit (self) outputs;
+      inherit (self) outputs;
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
       username = "ergho";
-      #stateVersion = "25.05";
+      # stateVersion = "25.05";
       system = "x86_64-linux";
 
     in
     {
-      overlays = import ./overlays {inherit inputs outputs;};
+      overlays = import ./overlays { inherit inputs outputs; };
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -64,7 +64,12 @@
           ];
           specialArgs = {
             host = "desktop";
-            inherit self inputs outputs username;
+            inherit
+              self
+              inputs
+              outputs
+              username
+              ;
           };
         };
         laptop = nixpkgs.lib.nixosSystem {
@@ -75,7 +80,12 @@
           ];
           specialArgs = {
             host = "laptop";
-            inherit self inputs outputs username;
+            inherit
+              self
+              inputs
+              outputs
+              username
+              ;
           };
         };
       };

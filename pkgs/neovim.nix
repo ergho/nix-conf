@@ -5,7 +5,7 @@
       name = "gruvbox";
       style = "dark";
     };
- 
+
     undoFile.enable = true;
     options = {
       shiftwidth = 4;
@@ -31,21 +31,29 @@
     autocomplete.nvim-cmp.enable = true;
     autopairs.nvim-autopairs.enable = true;
 
-    lsp.enable = true;
+    lsp = {
+      enable = true;
+      formatOnSave = true;
+    };
     languages = {
       enableFormat = true;
       enableTreesitter = true;
 
       #languages
-      nix.enable = true;
+      nix = {
+        enable = true;
+        extraDiagnostics.enable = true;
+        format.type = "nixfmt";
+      };
       rust.enable = true;
       python.enable = true;
       lua.enable = true;
     };
+    viAlias = true;
     vimAlias = true;
     spellcheck = {
       enable = true;
-      languages = [ "en" ];
+      languages = ["en"];
     };
   };
 }
