@@ -10,6 +10,7 @@
   imports = [
     ./bat.nix
     ./eza.nix
+    ./firefox.nix
     ./gh.nix
     ./hyprland
     ./waybar
