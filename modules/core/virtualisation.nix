@@ -1,6 +1,13 @@
+{ inputs, ... }:
 {
   virtualisation = {
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = inputs.nixpkgs-stable.qemu_kvm;
+
+      };
+    };
     podman.enable = true;
   };
 

@@ -25,6 +25,7 @@
     isNormalUser = true;
     description = "${username}";
     extraGroups = [
+      "libvirtd"
       "networkmanager"
       "wheel"
     ];

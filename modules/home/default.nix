@@ -9,6 +9,7 @@
     ./firefox.nix
     ./gh.nix
     ./hyprland
+    ./quickemu.nix
     ./tmux.nix
     ./waybar
   ];

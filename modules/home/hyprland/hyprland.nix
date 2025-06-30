@@ -70,8 +70,8 @@
 
       master = {
         new_status = "slave";
-	new_on_top = true;
-	mfact = 0.5;
+        new_on_top = true;
+        mfact = 0.5;
       };
 
       misc = {
