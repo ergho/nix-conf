@@ -11,6 +11,7 @@
     ./disko-config.nix
     ./../../modules/core
   ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   environment.systemPackages = with pkgs; [
     git
