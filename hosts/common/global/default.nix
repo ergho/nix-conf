@@ -8,6 +8,7 @@
     ./security.nix
     ./sops.nix
   ];
+
   home-manager.useGlobalPkgs = true;
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;

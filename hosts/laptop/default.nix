@@ -76,8 +76,6 @@
   # everything below here should be migrated elsewhere... :D
 
   environment.systemPackages = with pkgs; [
-    git
-    home-manager
     kitty
     vim
     wofi
