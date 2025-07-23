@@ -11,9 +11,14 @@
     inputs.hardware.nixosModules.common-gpu-intel
     inputs.hardware.nixosModules.common-gpu-nvidia
     inputs.hardware.nixosModules.common-pc-ssd
+
     ./hardware-configuration.nix
+
     ../common/global
     ../common/users/ergho
+
+    ../common/optional/pipewire.nix
+    ../common/optional/wireless.nix
 
     #Add in optional components that differ here
     #../common/optional/{item here}
@@ -69,13 +74,8 @@
 
   system.stateVersion = "25.05";
   # everything below here should be migrated elsewhere... :D
-  #security.rtkit.enable = true;
 
   environment.systemPackages = with pkgs; [
-    #intel-media-driver
-    #vaapiIntel
-    #vaapiVdpau
-    #libvdpau-va-gl
     git
     home-manager
     kitty
