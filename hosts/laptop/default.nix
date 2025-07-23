@@ -65,6 +65,10 @@
     };
   };
 
+  hardware.graphics.enable = true;
+
+  system.stateVersion = "25.05";
+  # everything below here should be migrated elsewhere... :D
   #security.rtkit.enable = true;
 
   environment.systemPackages = with pkgs; [

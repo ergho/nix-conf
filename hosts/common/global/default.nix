@@ -1,6 +1,13 @@
 { inputs, outputs, ... }:
 {
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    ./gamemode.nix
+    ./locale.nix
+    ./nix.nix
+    ./security.nix
+    ./sops.nix
+  ];
   home-manager.useGlobalPkgs = true;
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
