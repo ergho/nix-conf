@@ -19,7 +19,6 @@
   nixpkgs.overlays = builtins.attrValues outputs.overlays;
 
   environment.systemPackages = with pkgs; [
-    brightnessctl
     cliphist
     cowsay
     duf

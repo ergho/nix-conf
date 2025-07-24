@@ -76,10 +76,7 @@
   # everything below here should be migrated elsewhere... :D
 
   environment.systemPackages = with pkgs; [
-    kitty
-    vim
-    wofi
-    waybar
+    brightnessctl
   ];
 
 }

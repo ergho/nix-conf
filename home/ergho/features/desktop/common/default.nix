@@ -1,6 +1,6 @@
 {
   imports = [
-    ./waybar
+    ./wayland-wm
     ./firefox.nix
   ];
 }

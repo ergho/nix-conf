@@ -1,22 +1,29 @@
-{ ... }:
-{
+{...}: {
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     style = ./style.css;
     settings = {
       mainBar = {
         layer = "top";
-	position = "top";
-	height = 30;
-	modules-left = [ "hyprland/workspaces" ];
-	modules-center = [ "hyprland/window" ];
-	modules-right = [ "hyprland/language" "custom/weather" "pulseaudio" "battery" "clock" "tray" ];
-	"hyprland/workspaces" = {
-	  disable-scroll = true;
-	  show-special = true;
-	  special-visible-only = true;
-	  all-outputs = true;
-	  format-icons = {
+        position = "top";
+        height = 30;
+        modules-left = ["hyprland/workspaces"];
+        modules-center = ["hyprland/window"];
+        modules-right = [
+          "hyprland/language"
+          "custom/weather"
+          "pulseaudio"
+          "battery"
+          "clock"
+          "tray"
+        ];
+        "hyprland/workspaces" = {
+          disable-scroll = true;
+          show-special = true;
+          special-visible-only = true;
+          all-outputs = true;
+          format-icons = {
             "1" = "";
             "2" = "";
             "3" = "";
@@ -27,25 +34,25 @@
             "8" = "";
             "9" = "";
             "magic" = "";
-	  };
-	  #"persistent-workspaces" = {
-	  #  "*" = 9;
-	  #};
-	};
+          };
+          #"persistent-workspaces" = {
+          #  "*" = 9;
+          #};
+        };
 
-	"hyprland/language" = {
-	  format-en = "🇺🇸";
-	  format-sv = "🇸🇪";
-	  min-length = 5;
-	  tooltip = false;
-	};
+        "hyprland/language" = {
+          format-en = "🇺🇸";
+          format-sv = "🇸🇪";
+          min-length = 5;
+          tooltip = false;
+        };
 
-	"custom/weather" = {
-	  format = " {} ";
-	  exec = "curl -s 'https://wttr.in/Norrkoping?format=%c%t'";
-	  interval = 300;
-	  class = "weather";
-	};
+        "custom/weather" = {
+          format = " {} ";
+          exec = "curl -s 'https://wttr.in/Norrkoping?format=%c%t'";
+          interval = 300;
+          class = "weather";
+        };
 
         "pulseaudio" = {
           format = "{icon} {volume}%";
@@ -58,7 +65,10 @@
             "phone" = "";
             "portable" = "";
             "car" = "";
-            "default" = ["" ""];
+            "default" = [
+              ""
+              ""
+            ];
           };
           on-click = "pavucontrol";
         };
@@ -71,7 +81,13 @@
           format = "{icon} {capacity}%";
           format-charging = " {capacity}%";
           format-alt = "{time} {icon}";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
 
         "clock" = {
