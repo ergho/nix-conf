@@ -7,6 +7,7 @@
     ./nix.nix
     ./security.nix
     ./sops.nix
+    ./upower.nix
   ];
 
   home-manager.useGlobalPkgs = true;

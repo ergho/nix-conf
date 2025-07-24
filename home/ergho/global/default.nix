@@ -2,14 +2,12 @@
   lib,
   pkgs,
   config,
-  outputs,
   ...
 }:
 {
   imports = [
     ../features/cli
-  ]
-  ++ (builtins.attrValues outputs.homeManagerModules);
+  ];
 
   nix = {
     package = lib.mkDefault pkgs.nix;
@@ -30,8 +28,8 @@
   home = {
     username = lib.mkDefault "ergho";
     homeDirectory = lib.mkDefault "home/${config.home.username}";
-    stateVersion = lib.mkDefault "25.04";
-    sessionPath = "$HOME/.local/bin";
+    stateVersion = lib.mkDefault "25.05";
+    sessionPath = [ "$HOME/.local/bin" ];
     sessionVariables = {
       NH_FLAKE = "$HOME/Documents/NixConfig";
     };
