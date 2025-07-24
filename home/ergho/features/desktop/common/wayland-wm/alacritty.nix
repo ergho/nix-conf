@@ -1,6 +1,6 @@
 {
   xdg.mimeApps = {
-    assocications.added = {
+    associations.added = {
       "x-scheme-handler/terminal" = "Alacritty.desktop";
     };
     defaultApplications = {
