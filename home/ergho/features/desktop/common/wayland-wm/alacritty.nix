@@ -14,7 +14,7 @@
         {
           key = "N";
           mods = "Control|Shift";
-          action = "SpawnNetInstance";
+          action = "SpawnNewInstance";
         }
       ];
     };
