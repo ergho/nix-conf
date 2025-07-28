@@ -18,6 +18,7 @@
     ../common/users/ergho
 
     ../common/optional/pipewire.nix
+    ../common/optional/printers.nix
     ../common/optional/wireless.nix
 
     #Add in optional components that differ here
