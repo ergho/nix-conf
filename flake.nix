@@ -58,12 +58,14 @@
 
     in
     {
+      nixosModules = import ./modules/nixos;
       overlays = import ./overlays { inherit inputs outputs; };
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ./hosts/desktop
+            self.nixosModules.usb-audio
             inputs.disko.nixosModules.disko
             nix-flatpak.nixosModules.nix-flatpak
           ];

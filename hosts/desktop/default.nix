@@ -18,6 +18,7 @@
     ../common/users/ergho
     # Optional components will be added here like example
     # ../common/optional/...
+    ../common/optional/usbaudio.nix
     ../common/optional/pipewire.nix
     # old version, will replace slowly
     ./../../modules/core
