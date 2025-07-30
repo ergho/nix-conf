@@ -5,6 +5,7 @@
     ./gamemode.nix
     ./locale.nix
     ./nix.nix
+    ./openssh.nix
     ./security.nix
     ./sops.nix
     ./upower.nix
