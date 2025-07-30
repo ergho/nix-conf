@@ -3,7 +3,7 @@
   imports = [
     ./bootloader.nix
     ./flatpak.nix
-    ./fonts.nix
+    #./fonts.nix
     #./hardware.nix
     ./neovim.nix
     #./network.nix
