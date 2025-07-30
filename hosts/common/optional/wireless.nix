@@ -36,24 +36,47 @@
 
   systemd.services.wpa_supplicant.preStart = "touch /etc/wpa_supplicant.conf";
 
-  environment = {
-    systemPackages = with pkgs; [
-      networkd-dispatcher
-    ];
+  services.networkd-dispatcher = {
+    enable = true;
+    rules = {
+      disable-wifi = {
 
-    # Dispatcher scripts to disable Wi-Fi when Ethernet is active
-    etc."networkd-dispatcher/routable.d/disable-wifi".source = pkgs.writeScript "disable-wifi" ''
-      #!${pkgs.bash}/bin/bash
-      if [[ "$IFACE" == en*  && "$STATE" == "routeable" ]]; then
-        rfkill block wlan || true
-      fi
-    '';
+        onState = [ "routable" ];
+        script = ''
+          if [[ "$IFACE" == en* && "$STATE" == "routable" ]]; then
+            networkctl down wlp2s0f0 || true
+          fi
+        '';
+      };
+      enable-wifi = {
+        onState = [ "off" ];
+        script = ''
+          if [[ "$IFACE" == en* && "$STATE" == "off" ]]; then
+            networkctl up wlp2s0f0 || true
+          fi
+        '';
+      };
 
-    etc."networkd-dispatcher/off.d/enable-wifi".source = pkgs.writeScript "enable-wifi" ''
-      #!${pkgs.bash}/bin/bash
-      if [[ "$IFACE" == en* && "$STATE" == "off" ]]; then
-        rfkill unblock wlan || true
-      fi
-    '';
+    };
   };
+  #environment = {
+  #  systemPackages = with pkgs; [
+  #    networkd-dispatcher
+  #  ];
+
+  #  # Dispatcher scripts to disable Wi-Fi when Ethernet is active
+  #  etc."networkd-dispatcher/routable.d/disable-wifi".source = pkgs.writeScript "disable-wifi" ''
+  #    #!${pkgs.bash}/bin/bash
+  #    if [[ "$IFACE" == en*  && "$STATE" == "routeable" ]]; then
+  #      rfkill block wlan || true
+  #    fi
+  #  '';
+
+  #  etc."networkd-dispatcher/off.d/enable-wifi".source = pkgs.writeScript "enable-wifi" ''
+  #    #!${pkgs.bash}/bin/bash
+  #    if [[ "$IFACE" == en* && "$STATE" == "off" ]]; then
+  #      rfkill unblock wlan || true
+  #    fi
+  #  '';
+  #};
 }
