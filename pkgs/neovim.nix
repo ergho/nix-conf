@@ -8,9 +8,9 @@
 
     undoFile.enable = true;
     options = {
-      shiftwidth = 4;
-      tabstop = 4;
-      softtabstop = 4;
+      shiftwidth = 2;
+      tabstop = 2;
+      softtabstop = 2;
       nu = true;
       relativenumber = true;
       wrap = false;
@@ -53,7 +53,7 @@
     vimAlias = true;
     spellcheck = {
       enable = true;
-      languages = ["en"];
+      languages = [ "en" ];
     };
   };
 }
