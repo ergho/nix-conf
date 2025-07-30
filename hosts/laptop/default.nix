@@ -32,7 +32,9 @@
   #services.xserver.videoDrivers = [ "nvidia" ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  networking.hostName = "laptop";
+  networking = {
+    hostName = "laptop";
+  };
   powerManagement.powertop.enable = true;
 
   services.logind = {
