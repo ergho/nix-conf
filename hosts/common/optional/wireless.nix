@@ -41,9 +41,13 @@
     rules = {
       disable-wifi = {
 
-        onState = [ "routable" ];
+        onState = [
+          "routable"
+          "configured"
+        ];
         script = ''
-          if [[ "$IFACE" == en* && "$STATE" == "routable" ]]; then
+          if [[ "$IFACE" == enp* ]]; then
+            logger "Ethernet $IFACE ($STATE) -> Disabling Wi-Fi"
             networkctl down wlp2s0f0 || true
           fi
         '';
@@ -51,7 +55,8 @@
       enable-wifi = {
         onState = [ "off" ];
         script = ''
-          if [[ "$IFACE" == en* && "$STATE" == "off" ]]; then
+          if [[ "$IFACE" == enp* ]]; then
+            logger "Ethernet $IFACE ($STATE) -> Enabling Wi-Fi"
             networkctl up wlp2s0f0 || true
           fi
         '';
@@ -59,24 +64,4 @@
 
     };
   };
-  #environment = {
-  #  systemPackages = with pkgs; [
-  #    networkd-dispatcher
-  #  ];
-
-  #  # Dispatcher scripts to disable Wi-Fi when Ethernet is active
-  #  etc."networkd-dispatcher/routable.d/disable-wifi".source = pkgs.writeScript "disable-wifi" ''
-  #    #!${pkgs.bash}/bin/bash
-  #    if [[ "$IFACE" == en*  && "$STATE" == "routeable" ]]; then
-  #      rfkill block wlan || true
-  #    fi
-  #  '';
-
-  #  etc."networkd-dispatcher/off.d/enable-wifi".source = pkgs.writeScript "enable-wifi" ''
-  #    #!${pkgs.bash}/bin/bash
-  #    if [[ "$IFACE" == en* && "$STATE" == "off" ]]; then
-  #      rfkill unblock wlan || true
-  #    fi
-  #  '';
-  #};
 }
