@@ -42,6 +42,7 @@
       disko,
       firefox-addons,
       nixpkgs,
+      nixpkgs-stable,
       home-manager,
       nix-flatpak,
       nvf,
@@ -50,6 +51,12 @@
     let
       inherit (self) outputs;
       pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      pkgs-stable = import nixpkgs-stable {
+
         inherit system;
         config.allowUnfree = true;
       };
@@ -91,6 +98,7 @@
               self
               inputs
               outputs
+              pkgs-stable
               username
               ;
           };

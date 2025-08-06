@@ -20,6 +20,7 @@
     ../common/optional/pipewire.nix
     ../common/optional/printers.nix
     ../common/optional/wireless.nix
+    ../common/optional/work.nix
 
     #Add in optional components that differ here
     #../common/optional/{item here}
