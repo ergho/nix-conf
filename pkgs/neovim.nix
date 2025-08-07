@@ -48,6 +48,7 @@
       rust.enable = true;
       python.enable = true;
       lua.enable = true;
+      go.enable = true;
     };
     viAlias = true;
     vimAlias = true;

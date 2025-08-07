@@ -47,7 +47,7 @@
         ];
         script = ''
           if [[ "$IFACE" == enp* ]]; then
-            logger "Ethernet $IFACE ($STATE) -> Disabling Wi-Fi"
+            echo "Ethernet $IFACE ($STATE) -> Disabling Wi-Fi"
             networkctl down wlp2s0f0 || true
           fi
         '';
@@ -56,7 +56,7 @@
         onState = [ "off" ];
         script = ''
           if [[ "$IFACE" == enp* ]]; then
-            logger "Ethernet $IFACE ($STATE) -> Enabling Wi-Fi"
+            echo "Ethernet $IFACE ($STATE) -> Enabling Wi-Fi"
             networkctl up wlp2s0f0 || true
           fi
         '';
