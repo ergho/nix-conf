@@ -82,6 +82,7 @@
               self
               inputs
               outputs
+              pkgs-stable
               username
               ;
           };

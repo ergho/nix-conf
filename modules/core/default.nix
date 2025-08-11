@@ -13,6 +13,6 @@
     ./system.nix
     #./user.nix
     ./virtualisation.nix
-    ./wayland.nix
+    #./wayland.nix
   ];
 }
