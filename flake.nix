@@ -107,7 +107,7 @@
       };
       packages."x86_64-linux".neovim-config =
         (nvf.lib.neovimConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          pkgs = nixpkgs-stable.legacyPackages."x86_64-linux";
           modules = [ ./pkgs/neovim.nix ];
         }).neovim;
     };
