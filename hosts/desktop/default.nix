@@ -21,6 +21,7 @@
     ../common/optional/greetd.nix
     ../common/optional/usbaudio.nix
     ../common/optional/pipewire.nix
+    ../common/optional/work.nix
     # old version, will replace slowly
     ./../../modules/core
   ];
