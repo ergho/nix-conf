@@ -34,6 +34,8 @@
   # Probably covered by hardware import
   #services.xserver.videoDrivers = [ "nvidia" ];
 
+  # test with regular latest again
+  #boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   networking = {
     hostName = "laptop";
