@@ -24,11 +24,6 @@
   programs = {
     home-manager.enable = true;
     git.enable = true;
-    direnv = {
-      enable = true;
-      enableBashIntegration = true;
-      nix-direnv.enable = true;
-    };
   };
   home = {
     username = lib.mkDefault "ergho";

@@ -1,5 +1,13 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./bat.nix
+    ./direnv.nix
+    ./eza.nix
+    ./git.nix
+    ./gh.nix
+    ./fzf.nix
+  ];
   home.packages = with pkgs; [
     bc
     bottom

@@ -21,11 +21,13 @@
     ../common/optional/greetd.nix
     ../common/optional/usbaudio.nix
     ../common/optional/pipewire.nix
+    ../common/optional/go.nix
     ../common/optional/work.nix
     # old version, will replace slowly
     ./../../modules/core
   ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   networking = {
     hostName = "desktop";
   };
