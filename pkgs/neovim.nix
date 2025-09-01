@@ -46,6 +46,7 @@
         format.type = "nixfmt";
       };
       rust.enable = true;
+      markdown.enable = true;
       python.enable = true;
       lua.enable = true;
       go.enable = true;
