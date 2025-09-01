@@ -24,7 +24,6 @@
     duf
     discord
     discord-ptb
-    eza
     file-roller
     htop
     killall
