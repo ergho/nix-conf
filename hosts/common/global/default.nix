@@ -2,6 +2,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    ./booloader.nix
     ./gamemode.nix
     ./locale.nix
     ./nix.nix
