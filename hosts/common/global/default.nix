@@ -2,7 +2,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./booloader.nix
+    ./bootloader.nix
     ./gamemode.nix
     ./locale.nix
     ./nix.nix
@@ -10,6 +10,7 @@
     ./security.nix
     ./sops.nix
     ./upower.nix
+    ./virtualisation.nix
     ./wired.nix
   ];
 

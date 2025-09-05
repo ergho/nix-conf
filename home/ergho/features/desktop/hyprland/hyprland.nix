@@ -15,8 +15,6 @@
       "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";
       "exec-once" = [
-        #"waybar"
-        #"hypridle"
         "systemctl --user start hyprpolkitagent"
         "nm-applet --indicator"
       ];

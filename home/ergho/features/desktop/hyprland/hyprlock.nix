@@ -17,7 +17,7 @@
       input-field = [
         {
           monitor = "";
-          size = "200, 50";
+          size = "600, 100";
           outline_thickness = 5;
           dots_size = 0.2;
           dots_spacing = 0.35;
@@ -29,7 +29,7 @@
           rounding = -1;
           check_color = "rgb(111, 45, 104)";
           placeholder_text = "Password...";
-          position = "0, -100";
+          position = "0, 0";
           halign = "center";
           valign = "center";
         }
