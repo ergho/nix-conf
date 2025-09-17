@@ -50,6 +50,7 @@
       python.enable = true;
       lua.enable = true;
       go.enable = true;
+      yaml.enable = true;
     };
     viAlias = true;
     vimAlias = true;
