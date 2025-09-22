@@ -40,12 +40,12 @@
   };
   powerManagement.powertop.enable = true;
 
-  services.logind = {
-    lidSwitch = "suspend";
-    lidSwitchDocked = "lock";
-    lidSwitchExternalPower = "lock";
-    powerKey = "suspend";
-    powerKeyLongPress = "poweroff";
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+    HandleLidSwitchDocked = "lock";
+    HandleLidSwitchExternalPower = "lock";
+    HandlePowerKey = "suspend";
+    HandlePowerKeyLongPress = "poweroff";
   };
 
   hardware = {

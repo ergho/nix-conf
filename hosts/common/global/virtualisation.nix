@@ -3,9 +3,9 @@
   virtualisation = {
     libvirtd = {
       enable = true;
-      qemuOvmf = true;
-      qemuRunAsRoot = false;
       onBoot = "start";
+      qemu.ovmf.enable = true;
+      qemu.runAsRoot = false;
     };
     podman.enable = true;
   };
