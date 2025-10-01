@@ -40,6 +40,7 @@
   };
   powerManagement.powertop.enable = true;
 
+  services.tailscale.enable = true;
   services.logind.settings.Login = {
     HandleLidSwitch = "suspend";
     HandleLidSwitchDocked = "lock";
