@@ -9,7 +9,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/hyprland";
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -40,10 +44,8 @@
     {
       self,
       disko,
-      firefox-addons,
       nixpkgs,
       nixpkgs-stable,
-      home-manager,
       nix-flatpak,
       nvf,
       ...
