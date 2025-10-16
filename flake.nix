@@ -45,6 +45,7 @@
       self,
       disko,
       nixpkgs,
+      home-manager,
       nixpkgs-stable,
       nix-flatpak,
       nvf,
@@ -52,6 +53,7 @@
     }@inputs:
     let
       inherit (self) outputs;
+      lib = nixpkgs.lib // home-manager.lib;
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -67,8 +69,9 @@
 
     in
     {
+      inherit lib;
       nixosModules = import ./modules/nixos;
-      overlays = import ./overlays { inherit inputs outputs; };
+      overlays = import ./overlays { inherit inputs lib outputs; };
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -107,10 +110,13 @@
           };
         };
       };
-      packages."x86_64-linux".neovim-config =
-        (nvf.lib.neovimConfiguration {
-          pkgs = nixpkgs-stable.legacyPackages."x86_64-linux";
-          modules = [ ./pkgs/neovim.nix ];
-        }).neovim;
+      packages."x86_64-linux" = {
+        intel-graphics-compiler = pkgs.intel-graphics-compiler;
+        neovim-config =
+          (nvf.lib.neovimConfiguration {
+            pkgs = nixpkgs-stable.legacyPackages."x86_64-linux";
+            modules = [ ./pkgs/neovim.nix ];
+          }).neovim;
+      };
     };
 }
