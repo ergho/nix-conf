@@ -71,7 +71,7 @@
     {
       inherit lib;
       nixosModules = import ./modules/nixos;
-      overlays = import ./overlays { inherit inputs lib outputs; };
+      overlays = import ./overlays { inherit inputs; };
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
