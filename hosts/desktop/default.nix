@@ -23,7 +23,7 @@
     ../common/optional/steam.nix
     ../common/optional/usbaudio.nix
     ../common/optional/tailscale.nix
-    ../common/optional/work.nix
+    #../common/optional/work.nix
     # old version, will replace slowly
     ./../../modules/core
   ];

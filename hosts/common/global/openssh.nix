@@ -6,7 +6,7 @@ in
   services.openssh = {
     enable = true;
     settings = {
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
       PermitRootLogin = "no";
       StreamLocalBindUnlink = "yes";
       GatewayPorts = "clientspecified";

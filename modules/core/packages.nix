@@ -1,4 +1,4 @@
-{ pkgs, outputs, ... }:
+{ pkgs, ... }:
 
 {
   programs = {
@@ -15,8 +15,8 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = builtins.attrValues outputs.overlays;
+  #nixpkgs.config.allowUnfree = true;
+  #nixpkgs.overlays = builtins.attrValues outputs.overlays;
 
   environment.systemPackages = with pkgs; [
     cliphist
