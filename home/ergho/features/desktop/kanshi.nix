@@ -4,9 +4,10 @@
     enable = true;
     systemdTarget = "hyprland-session.target";
 
-    profiles = {
-      office-docked = {
-        outputs = [
+    settings = [
+      {
+        profile.name = "office-docked";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             status = "disable";
@@ -21,18 +22,18 @@
             mode = "2560x1440@60Hz";
             position = "2560,0";
           }
-
         ];
-      };
-      undocked = {
-        outputs = [
+      }
+
+      {
+        profile.name = "undocked";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             status = "enable";
           }
         ];
-      };
-
-    };
+      }
+    ];
   };
 }
