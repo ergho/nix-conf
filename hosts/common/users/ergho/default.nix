@@ -15,6 +15,7 @@ in
       "docker"
       "git"
       "libvirtd"
+      "qemu-libvirtd"
       "network"
       "podman"
       "video"
