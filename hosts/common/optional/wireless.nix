@@ -75,26 +75,6 @@
               networkctl up wlp2s0f0 || true
           fi
         '';
-        #script = ''
-        #  #!/bin/bash
-        #  set -euo pipefail
-
-        #  sleep 1
-
-        #  # Only enable Wi-Fi if no other ethernet is routable
-        #  if ! networkctl list --no-pager --no-legend | gawk '/ether/ && $4 == "routable" {found=1} END{exit found}'; then
-        #    echo "[wifi-toggle] Ethernet $IFACE ($STATE) -> Enabling Wi-Fi"
-        #    networkctl up wlp2s0f0 || true
-        #    # Or, for NetworkManager:
-        #    # nmcli radio wifi on || true
-        #  fi
-        #'';
-        #script = ''
-        #  if [[ "$IFACE" == enp* ]]; then
-        #    echo "Ethernet $IFACE ($STATE) -> Enabling Wi-Fi"
-        #    networkctl up wlp2s0f0 || true
-        #  fi
-        #'';
       };
 
     };
