@@ -38,7 +38,7 @@
     unrar
     unzip
     usbutils
-    webcord
+    #webcord
     wget
   ];
 }
