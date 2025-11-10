@@ -57,8 +57,14 @@
         script = ''
           #!/bin/bash
           set -euo pipefail
-          # disable Wi-Fi if the current interface is ethernet
-          if networkctl list --no-pager --no-legend | grep -q " $IFACE .*ether "; then
+
+          # Skip Wi-Fi, loopback, VPN, container, and virtual interfaces
+          if [[ "$IFACE" =~ ^(wl|lo|veth|br-|virbr|tun|tap|wg|tailscale) ]]; then
+            exit 0
+          fi
+
+          # disable Wi-Fi if ethernet is routable
+          if networkctl list --no-pager --no-legend | grep -q " .*ether .*routable"; then
               echo "Result: Ethernet detected, disabling Wi-Fi."
               networkctl down wlp2s0f0 || true
           fi
@@ -69,6 +75,12 @@
         script = ''
           #!/bin/bash
           set -euo pipefail
+
+          # Skip Wi-Fi, loopback, VPN, container, and virtual interfaces
+          if [[ "$IFACE" =~ ^(wl|lo|veth|br-|virbr|tun|tap|wg|tailscale) ]]; then
+            exit 0
+          fi
+
           # enable Wi-Fi if no ethernet interface is routable
           if ! networkctl list --no-pager --no-legend | grep -q " .*ether .*routable "; then
               echo "Result: No routable ethernet detected, enabling Wi-Fi."
