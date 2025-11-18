@@ -22,8 +22,6 @@
     cliphist
     cowsay
     duf
-    discord
-    discord-ptb
     file-roller
     htop
     killall
@@ -38,7 +36,6 @@
     unrar
     unzip
     usbutils
-    #webcord
     wget
   ];
 }

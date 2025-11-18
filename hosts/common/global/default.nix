@@ -3,6 +3,7 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./bootloader.nix
+    ./display-manager.nix
     ./gamemode.nix
     ./locale.nix
     ./nix.nix
