@@ -5,6 +5,7 @@
     ./bootloader.nix
     ./display-manager.nix
     ./gamemode.nix
+    ./keyboard.nix
     ./locale.nix
     ./nix.nix
     ./openssh.nix

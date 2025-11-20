@@ -21,4 +21,6 @@
     MOZ_ENABLE_WAYLAND = 1;
     QT_QPA_PLATFORM = "wayland";
   };
+
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
 }
