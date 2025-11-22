@@ -23,7 +23,12 @@ in
     ];
     packages = [ pkgs.home-manager ];
   };
-  home-manager.users.ergho = import ../../../../home/ergho/${config.networking.hostName}.nix;
+  home-manager = {
+    users.ergho = import ../../../../home/ergho/${config.networking.hostName}.nix;
+    extraSpecialArgs = {
+      host = config.networking.hostName;
+    };
+  };
   security.pam.services = {
     swaylock = { };
     hyprlock = { };

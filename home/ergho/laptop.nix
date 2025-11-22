@@ -1,3 +1,4 @@
+{ host, ... }:
 {
   imports = [
     ./global
