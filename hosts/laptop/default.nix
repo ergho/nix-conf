@@ -17,7 +17,7 @@
     ../common/global
     ../common/users/ergho
 
-    ../common/optional/greetd.nix
+    ../common/optional/regreet.nix
     ../common/optional/pipewire.nix
     ../common/optional/printers.nix
     ../common/optional/wireless.nix
