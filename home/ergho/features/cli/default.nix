@@ -9,6 +9,7 @@
     ./gh.nix
     ./fish.nix
     ./fzf.nix
+    ./neovim.nix
   ];
   home.packages = with pkgs; [
     bc
