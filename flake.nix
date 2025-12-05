@@ -2,8 +2,10 @@
   description = "Beginner NixOS config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    systems.url = "github:nix-systems/default-linux";
+
     hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -21,6 +23,17 @@
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-gaming = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+
     };
 
     firefox-addons = {
@@ -43,28 +56,26 @@
   outputs =
     {
       self,
-      disko,
+      #disko,
       nixpkgs,
       home-manager,
-      nixpkgs-stable,
       nix-flatpak,
       nvf,
+      systems,
       ...
     }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
+      pkgsFor = lib.genAttrs (import systems) (
+        system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
 
-      pkgs-stable = import nixpkgs-stable {
-
-        inherit system;
-        config.allowUnfree = true;
-      };
-      username = "ergho";
+        }
+      );
       system = "x86_64-linux";
 
     in
@@ -72,6 +83,7 @@
       inherit lib;
       nixosModules = import ./modules/nixos;
       overlays = import ./overlays { inherit inputs; };
+      devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -84,11 +96,9 @@
           specialArgs = {
             host = "desktop";
             inherit
-              self
+              #self
               inputs
               outputs
-              pkgs-stable
-              username
               ;
           };
         };
@@ -101,20 +111,17 @@
           specialArgs = {
             host = "laptop";
             inherit
-              self
+              #self
               inputs
               outputs
-              pkgs-stable
-              username
               ;
           };
         };
       };
       packages."x86_64-linux" = {
-        intel-graphics-compiler = pkgs.intel-graphics-compiler;
         neovim-config =
           (nvf.lib.neovimConfiguration {
-            pkgs = nixpkgs-stable.legacyPackages."x86_64-linux";
+            pkgs = nixpkgs.legacyPackages."x86_64-linux";
             modules = [ ./pkgs/neovim.nix ];
           }).neovim;
       };

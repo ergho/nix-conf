@@ -1,4 +1,4 @@
-{ self, pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  environment.systemPackages = [self.packages.${pkgs.stdenv.system}.neovim-config];
+  environment.systemPackages = [ inputs.self.packages.${pkgs.stdenv.system}.neovim-config ];
 }

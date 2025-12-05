@@ -4,6 +4,7 @@
     inputs.home-manager.nixosModules.home-manager
     ./bootloader.nix
     ./display-manager.nix
+    ./flatpak.nix
     ./gamemode.nix
     ./keyboard.nix
     ./locale.nix

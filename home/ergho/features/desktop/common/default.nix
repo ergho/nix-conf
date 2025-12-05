@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./wayland-wm
@@ -5,6 +6,11 @@
     ./fonts.nix
     ./discord.nix
     ./gtk.nix
+    ./pavucontrol.nix
+  ];
+
+  home.packages = [
+    pkgs.libnotify
   ];
 
   xdg.portal.enable = true;

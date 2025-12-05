@@ -1,4 +1,4 @@
-{ ... }:
+{ config, lib, ... }:
 
 {
   programs.hyprlock = {
@@ -8,16 +8,26 @@
         disable_loading_bar = true;
         hide_cursor = true;
       };
+      animations = {
+        enabled = true;
+        bezier = [
+          "easeout,0.5, 1, 0.9, 1"
+          "easeoutblack,0.34,1.22,0.65,1"
+        ];
+        animation = [
+          "fade, 1, 3, easeout"
+          "inputField, 1, 1, easeoutblack"
+        ];
+      };
       background = [
         {
-          monitor = "";
-          blur_passes = 2;
+          path = "screenshot";
+          blur_passes = 4;
         }
       ];
       input-field = [
         {
           monitor = "";
-          size = "600, 100";
           outline_thickness = 5;
           dots_size = 0.2;
           dots_spacing = 0.35;
@@ -54,6 +64,18 @@
           valign = "center";
         }
       ];
+    };
+  };
+  wayland.windowManager.hyprland = {
+    settings = {
+      bind =
+        let
+          hyprlock = lib.getExe config.programs.hyprlock.package;
+        in
+        [
+          "SUPER,backspace,exec,${hyprlock}"
+
+        ];
     };
   };
 }

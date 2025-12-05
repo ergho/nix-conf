@@ -1,4 +1,5 @@
-{...}: {
+{ lib, pkgs, ... }:
+{
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -8,8 +9,8 @@
         layer = "top";
         position = "top";
         height = 30;
-        modules-left = ["hyprland/workspaces"];
-        modules-center = ["hyprland/window"];
+        modules-left = [ "hyprland/workspaces" ];
+        modules-center = [ "hyprland/window" ];
         modules-right = [
           "hyprland/language"
           "custom/weather"
@@ -70,7 +71,7 @@
               ""
             ];
           };
-          on-click = "pavucontrol";
+          on-click = lib.getExe pkgs.pavucontrol;
         };
 
         "battery" = {
