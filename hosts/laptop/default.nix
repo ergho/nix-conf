@@ -23,11 +23,6 @@
     ../common/optional/wireless.nix
     ../common/optional/work.nix
 
-    #Add in optional components that differ here
-    #../common/optional/{item here}
-    # Migrating to new layout, leave old until finished
-    ../../modules/core
-
   ];
 
   # Probably covered by hardware import

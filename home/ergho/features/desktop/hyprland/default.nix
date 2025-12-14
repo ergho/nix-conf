@@ -6,6 +6,7 @@
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
+    #./hyprshot.nix
   ];
 
   xdg.portal = {
@@ -20,5 +21,16 @@
         "gtk"
       ];
     };
+  };
+
+  home = {
+    pointerCursor.hyprcursor.enable = true;
+
+    packages = [
+      pkgs.grimblast
+      pkgs.hyprpicker
+    ];
+
+    exportedSessionPackages = [ config.wayland.windowManager.hyprland.package ];
   };
 }

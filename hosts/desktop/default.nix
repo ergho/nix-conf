@@ -24,8 +24,6 @@
     ../common/optional/usbaudio.nix
     ../common/optional/tailscale.nix
     ../common/optional/work.nix
-    # old version, will replace slowly
-    ./../../modules/core
   ];
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
   #boot.kernelPackages = pkgs.linuxPackages_latest;

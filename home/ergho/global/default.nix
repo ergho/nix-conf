@@ -2,12 +2,14 @@
   lib,
   pkgs,
   config,
+  outputs,
   ...
 }:
 {
   imports = [
     ../features/cli
-  ];
+  ]
+  ++ (builtins.attrValues outputs.homeManagerModules);
 
   nix = {
     package = lib.mkDefault pkgs.nix;
