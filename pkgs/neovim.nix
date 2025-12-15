@@ -47,7 +47,7 @@
       nix = {
         enable = true;
         extraDiagnostics.enable = true;
-        format.type = "nixfmt";
+        format.type = [ "nixfmt" ];
       };
       rust.enable = true;
       markdown.enable = true;
