@@ -25,7 +25,7 @@
 
     nixd
     alejandra
-    nixfmt-rfc-style
+    nixfmt
     nvd
     nix-diff
     nix-output-monitor
