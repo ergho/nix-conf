@@ -47,9 +47,16 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
   };
 
@@ -113,6 +120,20 @@
             host = "laptop";
             inherit
               #self
+              inputs
+              outputs
+              ;
+          };
+        };
+        test = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/test
+            inputs.disko.nixosModules.disko
+          ];
+          specialArgs = {
+            host = "test";
+            inherit
               inputs
               outputs
               ;
