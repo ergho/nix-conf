@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }:
 let
@@ -22,7 +23,17 @@ in
       "wheel"
     ];
     packages = [ pkgs.home-manager ];
+    openssh.authorizedKeys.keys = lib.splitString "\n" (
+      builtins.readFile ../../../../home/ergho/ssh.pub
+    );
+    hashedPasswordFile = config.sops.secrets.ergho-password.path;
   };
+
+  sops.secrets.ergho-password = {
+    sopsFile = ../../secrets.yaml;
+    neededForUsers = true;
+  };
+
   home-manager = {
     users.ergho = import ../../../../home/ergho/${config.networking.hostName}.nix;
     extraSpecialArgs = {

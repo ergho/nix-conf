@@ -1,27 +1,26 @@
 keys:
-  - &users:
-     - &ergho 33FAB94313F111A7BD0CA1372396245C44C5CA30
-  - &hosts:
+  - users:
+     - &ergho age14y5zhjapyx4flp07ec8fey5lmvkrwp9pa3h5z9vyp546pf6lsc7sye0hej
+  - hosts:
+     - &desktop age13d3xmap6zfyaqdzch2zv0daus3y8memkn6kuegyglddv4zdg7d3s6fpxap
      - &laptop age1yc57fdg82pgjwnc7djg3pnel8ccnamk6ujhguwlah42ls7wpxywquuug6x
 creation_rules:
-#  - path_regex: hosts/desktop/secrets.ya?ml$
-#    key_groups:
-#      - age: 
-#        - *desktop
-#      - pgp: 
-#        - *ergho
-#
+  - path_regex: hosts/desktop/secrets.ya?ml$
+    key_groups:
+      - age: 
+        - *desktop
+        - *ergho
+
   - path_regex: hosts/laptop/secrets.ya?ml$
     key_groups:
       - age: 
-        - *laptop
-        pgp:
         - *ergho
+        - *laptop
 
 
   - path_regex: hosts/common/secrets.ya?ml$
     key_groups:
       - age: 
-        - *laptop
-        pgp:
+        - *desktop
         - *ergho
+        - *laptop
