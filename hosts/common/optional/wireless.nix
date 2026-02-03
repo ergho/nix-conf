@@ -2,6 +2,9 @@
   config,
   ...
 }:
+#let
+#  secretPath = "wpa_supplicant/wireless.secret";
+#in
 {
   hardware.bluetooth = {
     enable = true;
@@ -23,11 +26,20 @@
     neededForUsers = true;
   };
 
+  #environment.etc."${secretPath}" = {
+  #  enable = true;
+  #  user = "wpa_supplicant";
+  #  group = "wpa_supplicant";
+  #  mode = "0440";
+  #  source = config.sops.secrets.wireless.path;
+  #};
+
   networking.wireless = {
     enable = true;
     userControlled = true;
     fallbackToWPA2 = false;
     # Declarative
+    #secretsFile = "/etc/${secretPath}";
     secretsFile = config.sops.secrets.wireless.path;
     networks = {
       "homenet" = {
@@ -43,11 +55,13 @@
 
     # Imperative
     allowAuxiliaryImperativeNetworks = true;
+
     # https://discourse.nixos.org/t/is-networking-usercontrolled-working-with-wpa-gui-for-anyone/29659
-    #extraConfig = ''
     #  ctrl_interface=DIR=/run/wpa_supplicant GROUP=${config.users.groups.network.name}
     #  update_config=1
-    #'';
+    extraConfig = ''
+      p2p_disabled=1
+    '';
   };
 
   # Ensure group exists
