@@ -8,6 +8,7 @@
     ./kitty.nix
     ./swayosd.nix
     ./waybar
+    ./waypipe.nix
     ./wofi.nix
     ./zathura.nix
   ];
