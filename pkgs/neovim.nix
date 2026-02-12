@@ -62,5 +62,10 @@
       enable = true;
       languages = [ "en" ];
     };
+    utility = {
+
+      undotree.enable = true;
+    };
+
   };
 }
