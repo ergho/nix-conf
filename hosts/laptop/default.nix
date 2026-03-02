@@ -22,13 +22,14 @@
     ../common/optional/printers.nix
     ../common/optional/wireless.nix
     ../common/optional/work.nix
+    ../common/optional/webcam.nix
 
   ];
 
   # Probably covered by hardware import
   #services.xserver.videoDrivers = [ "nvidia" ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
   #boot.kernelPackages = pkgs.linuxPackages_latest;
   networking = {
     hostName = "laptop";
