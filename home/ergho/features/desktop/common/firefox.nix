@@ -60,6 +60,9 @@
           "T9nJot5PurhJSy8n038xGA=="
         ] (_: 1);
 
+        # Enable pipewire for camera
+        "media.webrtc.camera.allow-pipewire" = true;
+
         # Disable some telemetry
         "app.shield.optoutstudies.enabled" = false;
         "browser.discovery.enabled" = false;
