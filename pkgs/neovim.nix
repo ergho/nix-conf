@@ -55,6 +55,7 @@
       lua.enable = true;
       go.enable = true;
       yaml.enable = true;
+      terraform.enable = true;
     };
     viAlias = true;
     vimAlias = true;
