@@ -10,7 +10,7 @@
     #xwayland.enable = false;
     settings = {
 
-      "$terminal" = "kitty";
+      "$terminal" = "alacritty";
       "$fileManager" = "dolphin";
       "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";
