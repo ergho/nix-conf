@@ -56,6 +56,7 @@
       go.enable = true;
       yaml.enable = true;
       terraform.enable = true;
+      bash.enable = true;
     };
     viAlias = true;
     vimAlias = true;
