@@ -38,6 +38,20 @@
     wofi
     waybar
   ];
+
+  fileSystems."/mnt/media" = {
+    device = "truenas.ergho.org:/mnt/BeepyBoopy/Media";
+    fsType = "nfs";
+
+    options = [
+      "_netdev"
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle_timeout=5s"
+      "x-systemd.idle_action=umount-force"
+      "soft"
+    ];
+  };
   hardware.graphics.enable = true;
 
   system.stateVersion = "25.05";
