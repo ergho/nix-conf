@@ -1,3 +1,4 @@
+{ pkgs }:
 {
   xdg.mimeApps = {
     associations.added = {
@@ -10,6 +11,16 @@
   programs.alacritty = {
     enable = true;
     settings = {
+      #terminal.shell = {
+      #  args = [
+      #    "new-session"
+      #    "-A"
+      #    "-D"
+      #    "-s"
+      #    "main"
+      #  ];
+      #  program = "${pkgs.tmux}/bin/tmux";
+      #};
       keyboard.bindings = [
         {
           key = "N";
