@@ -90,7 +90,9 @@
       inherit lib;
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
+
       overlays = import ./overlays { inherit inputs; };
+      packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs nvf; });
       devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
@@ -126,12 +128,12 @@
           };
         };
       };
-      packages."x86_64-linux" = {
-        neovim-config =
-          (nvf.lib.neovimConfiguration {
-            pkgs = nixpkgs.legacyPackages."x86_64-linux";
-            modules = [ ./pkgs/neovim.nix ];
-          }).neovim;
-      };
+      #packages."x86_64-linux" = {
+      #  neovim-config =
+      #    (nvf.lib.neovimConfiguration {
+      #      pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      #      modules = [ ./pkgs/neovim.nix ];
+      #    }).neovim;
+      #};
     };
 }
