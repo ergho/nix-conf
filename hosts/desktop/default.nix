@@ -26,8 +26,8 @@
     ../common/optional/usbaudio.nix
     ../common/optional/work.nix
   ];
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking = {
     hostName = "desktop";
   };
