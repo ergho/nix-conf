@@ -8,6 +8,8 @@
 
     undoFile.enable = true;
     options = {
+      exrc = true;
+      secure = true;
       shiftwidth = 2;
       tabstop = 2;
       softtabstop = 2;
