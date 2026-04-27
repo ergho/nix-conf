@@ -1,3 +1,4 @@
+#{ pkgs }:
 {
   xdg.mimeApps = {
     associations.added = {

@@ -20,6 +20,7 @@
     ../common/optional/regreet.nix
     ../common/optional/pipewire.nix
     ../common/optional/printers.nix
+    ../common/optional/smartcard.nix
     ../common/optional/wireless.nix
     ../common/optional/work.nix
     ../common/optional/webcam.nix
