@@ -6,7 +6,21 @@
 
     settings = [
       {
-        profile.name = "office-docked";
+        profile.name = "office-docked-one-monitor";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "disable";
+          }
+          {
+            criteria = "Dell Inc. DELL U2722DE 8LSL5P3";
+            mode = "2560x1440@60Hz";
+            position = "0,0";
+          }
+        ];
+      }
+      {
+        profile.name = "office-docked-two-monitors";
         profile.outputs = [
           {
             criteria = "eDP-1";
