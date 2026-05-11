@@ -7,7 +7,7 @@
     ./eza.nix
     ./git.nix
     ./gh.nix
-    ./fish.nix
+    ./fish
     ./fzf.nix
     ./neovim.nix
     ./ssh.nix
