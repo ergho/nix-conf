@@ -7,7 +7,7 @@
     ./hyprland.nix
     ./hyprlock.nix
     #./hyprshot.nix
-    ./hyprpaper.nix
+    #    ./hyprpaper.nix
   ];
 
   xdg.portal = {
