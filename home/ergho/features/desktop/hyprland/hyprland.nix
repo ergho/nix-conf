@@ -62,7 +62,7 @@
       };
 
       dwindle = {
-        pseudotile = true;
+        #pseudotile = true;
         preserve_split = true;
       };
 
@@ -103,7 +103,7 @@
         "$mainMod, V, togglefloating,"
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo, # dwindle"
-        "$mainMod, J, togglesplit, # dwindle"
+        #"$mainMod, J, togglesplit, # dwindle"
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
