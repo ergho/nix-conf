@@ -127,6 +127,18 @@
               ;
           };
         };
+        test = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/test
+            inputs.disko.nixosModules.disko
+            nix-flatpak.nixosModules.nix-flatpak
+          ];
+          specialArgs = {
+            host = "test";
+            inherit inputs outputs;
+          };
+        };
       };
       #packages."x86_64-linux" = {
       #  neovim-config =

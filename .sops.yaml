@@ -4,6 +4,7 @@ keys:
   - hosts:
      - &desktop age13d3xmap6zfyaqdzch2zv0daus3y8memkn6kuegyglddv4zdg7d3s6fpxap
      - &laptop age1yc57fdg82pgjwnc7djg3pnel8ccnamk6ujhguwlah42ls7wpxywquuug6x
+     - &test age1wsx49x9dsne7e7pv4m2z2mdysw7xehrgnfcq8ayplgepfg20f4vsf8plxv
 creation_rules:
   - path_regex: hosts/desktop/secrets.ya?ml$
     key_groups:
@@ -24,3 +25,4 @@ creation_rules:
         - *desktop
         - *ergho
         - *laptop
+        - *test

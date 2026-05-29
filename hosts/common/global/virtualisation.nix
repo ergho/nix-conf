@@ -4,7 +4,7 @@
     libvirtd = {
       enable = true;
       onBoot = "start";
-      #qemu.runAsRoot = false;
+      qemu.swtpm.enable = true;
     };
     podman.enable = true;
   };

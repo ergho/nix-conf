@@ -11,7 +11,7 @@ in
   users.mutableUsers = false;
   users.users.ergho = {
     isNormalUser = true;
-    shell = pkgs.bash;
+    shell = pkgs.fish;
     extraGroups = ifTheyExist [
       "audio"
       "docker"
