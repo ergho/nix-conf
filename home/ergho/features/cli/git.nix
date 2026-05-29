@@ -12,7 +12,6 @@
         st = "status";
       };
 
-      #extraConfig = {
       merge.conflictStyle = "diff3";
       commit.verbose = true;
       log.date = "iso";
@@ -23,7 +22,6 @@
       rerere.enabled = true;
       init.defaultBranch = "main";
       credential.helper = "cache --timeout=7200";
-      #};
     };
     lfs.enable = true;
     ignores = [
