@@ -12,6 +12,7 @@
     ./neovim.nix
     ./ssh.nix
     ./tmux.nix
+    ./yazi
   ];
   home.packages = with pkgs; [
     bc

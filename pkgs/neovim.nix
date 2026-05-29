@@ -69,6 +69,7 @@
     utility = {
 
       undotree.enable = true;
+      yazi-nvim.enable = true;
     };
 
   };

@@ -1,6 +1,11 @@
 {
-  programs.fzf = {
+  #programs.fzf = {
+  #  enable = true;
+  #  defaultOptions = [ "--color 16" ];
+  #};
+  programs.skim = {
     enable = true;
-    defaultOptions = [ "--color 16" ];
+    enableBashIntegration = true;
+    enableFishIntegration = true;
   };
 }

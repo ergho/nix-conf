@@ -45,6 +45,7 @@
     HandlePowerKey = "suspend";
     HandlePowerKeyLongPress = "poweroff";
   };
+  services.fwupd.enable = true;
 
   hardware = {
     # Webcamera enablement

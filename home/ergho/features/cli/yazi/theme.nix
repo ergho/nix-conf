@@ -1,0 +1,6 @@
+{
+  flavor = {
+    dark = "gruvbox-material";
+    light = "gruvbox-material";
+  };
+}
