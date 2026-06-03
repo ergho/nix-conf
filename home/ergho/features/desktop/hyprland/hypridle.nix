@@ -55,7 +55,7 @@
           }
           {
             timeout = 30;
-            on-timeout = "if ${isLocked}; then hyprcyl dispatch dpms off; fi";
+            on-timeout = "if ${isLocked}; then hyprctl dispatch dpms off; fi";
             on-resume = "hyprctl dispatch dpms on";
           }
           # If discharging
