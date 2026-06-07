@@ -18,7 +18,7 @@
       in
       {
         general = {
-          after_sleep_cd = "hyprctl dispatch dpms on";
+          after_sleep_cmd = "hyprctl dispatch dpms on";
           before_sleep_cmd = "loginctl lock-session";
           lock_cmd = "if ! ${isLocked}; then ${lib.getExe config.programs.hyprlock.package} --grace 5; fi";
           inhibit_sleep = 3; # Wait for lock before suspend
