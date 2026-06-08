@@ -6,6 +6,8 @@
 {
   programs.firefox = {
     enable = true;
+    # TODO: migrate to "${config.xdg.configHome}/mozilla/firefox"
+    configPath = ".mozilla/firefox";
     profiles.ergho = {
       search = {
         force = true;

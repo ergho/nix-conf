@@ -11,8 +11,6 @@
       let
         isDesktop = ''[ "${host}" = "desktop" ]'';
         isLaptop = ''[ "${host}" = "laptop" ]'';
-        #isDesktop = host == "desktop";
-        #isLaptop = host == "laptop";
         isLocked = "pgrep hyprlock";
         isDischarging = "grep Discharging /sys/class/power_supply/BAT{0,1}/status -q";
       in
@@ -26,7 +24,7 @@
         listener = [
 
           {
-            timeout = 30;
+            timeout = 10;
             on-timeout = "brightnessctl --save";
             on-resume = "brightnessctl --restore";
           }
@@ -35,7 +33,7 @@
             on-timeout = "brightnessctl set 50%-";
           }
           {
-            timeout = 180;
+            timeout = 120;
             on-timeout = "brightnessctl set 50%-";
           }
           # if laptop
@@ -43,10 +41,20 @@
             timeout = 300;
             on-timeout = "if ${isLaptop}; then loginctl lock-session; fi";
           }
+          {
+            timeout = 330;
+            on-timeout = "if ${isLaptop}; then hyprctl dispatch dpms off; fi";
+            on-resume = "hyprctl dispatch dpms on";
+          }
           # if desktop
           {
             timeout = 600;
             on-timeout = "if ${isDesktop}; then loginctl lock-session; fi";
+          }
+          {
+            timeout = 630;
+            on-timeout = "if ${isDesktop}; then hyprctl dispatch dpms off; fi";
+            on-resume = "hyprctl dispatch dpms on";
           }
           # if locked
           {

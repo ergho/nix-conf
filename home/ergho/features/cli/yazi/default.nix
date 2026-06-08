@@ -15,6 +15,7 @@ in
     enable = true;
     enableFishIntegration = true;
     enableBashIntegration = true;
+    shellWrapperName = "y";
     theme.flavor = {
       dark = "gruvbox-material";
       light = "gruvbox-material";

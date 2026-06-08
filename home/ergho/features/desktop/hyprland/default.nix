@@ -30,6 +30,7 @@
     packages = [
       pkgs.grimblast
       pkgs.hyprpicker
+      pkgs.kitty
     ];
 
     exportedSessionPackages = [ config.wayland.windowManager.hyprland.package ];
