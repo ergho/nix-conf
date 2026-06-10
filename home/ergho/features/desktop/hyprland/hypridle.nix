@@ -58,11 +58,11 @@
           }
           # if locked
           {
-            timeout = 15;
+            timeout = 45;
             on-timeout = "if ${isLocked}; then brightnessctl set 75%-; fi";
           }
           {
-            timeout = 30;
+            timeout = 60;
             on-timeout = "if ${isLocked}; then hyprctl dispatch dpms off; fi";
             on-resume = "hyprctl dispatch dpms on";
           }
