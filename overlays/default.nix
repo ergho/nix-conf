@@ -7,8 +7,8 @@
     inputs = builtins.mapAttrs (
       _: flake:
       let
-        legacyPackages = (flake.legacyPackages or { }).${final.stdenv.hostPlatform.system} or { };
-        packages = (flake.packages or { }).${final.stdenv.hostPlatform.system} or { };
+        legacyPackages = (flake.legacyPackages or { }).${final.system} or { };
+        packages = (flake.packages or { }).${final.system} or { };
       in
       if legacyPackages != { } then legacyPackages else packages
     ) inputs;
@@ -30,7 +30,7 @@
   #  ) brokenPkgs;
 
   citrix-fix =
-    final: _:
+    _final: prev:
     let
       # Import the pinned nixpkgs snapshot
       compatPkgs =
@@ -40,8 +40,8 @@
             sha256 = "0zrkfxj130gbgixgk8yaxk5d9s5ppj667x38n4vys4zxw5r60bjz";
           })
           {
-            inherit (final) ;
-            localSystem = final.stdenv.hostPlatform;
+            system = prev.system;
+            #localSystem = prev.stdenv.hostPlatform;
             config = {
               allowUnfree = true;
               allowInsecure = true;
@@ -54,5 +54,25 @@
     {
       # Override citrix-workspace with the one from compatPkgs
       inherit (compatPkgs) citrix_workspace;
+    };
+
+  # Temporary fix for cantarell-fonts https://github.com/NixOS/nixpkgs/issues/535887
+  cantarell-fix =
+    _final: prev:
+
+    let
+      oldPkgs =
+        import
+          (builtins.fetchTarball {
+            url = "https://github.com/NixOS/nixpkgs/archive/46f1d8c16559067a9800bf6a449ea20be2b128af.tar.gz";
+            sha256 = "0f4lrw13ls3zlddfv7g86qv4g2dd3jr265650gax74yrjimp5n4b";
+          })
+          {
+            system = prev.system;
+            config = prev.config;
+          };
+    in
+    {
+      cantarell-fonts = oldPkgs.cantarell-fonts;
     };
 }

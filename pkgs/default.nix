@@ -4,8 +4,6 @@
   ...
 }:
 rec {
-  bizhawk = pkgs.callPackage ./bizhawk { };
-
   neovim-config =
     (nvf.lib.neovimConfiguration {
       inherit pkgs;
