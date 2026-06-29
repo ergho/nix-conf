@@ -41,7 +41,6 @@
           })
           {
             system = prev.system;
-            #localSystem = prev.stdenv.hostPlatform;
             config = {
               allowUnfree = true;
               allowInsecure = true;
