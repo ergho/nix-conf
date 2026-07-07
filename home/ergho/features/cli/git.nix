@@ -17,7 +17,7 @@
       log.date = "iso";
       log.decorate = "full";
       column.ui = "auto";
-      branch.sort = "comitterdate";
+      branch.sort = "committerdate";
       push.autoSetupRemote = true;
       rerere.enabled = true;
       init.defaultBranch = "main";

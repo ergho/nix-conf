@@ -7,6 +7,7 @@
     ./discord.nix
     ./gtk.nix
     ./pavucontrol.nix
+    ./pia.nix
   ];
 
   home.packages = [
