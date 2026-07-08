@@ -39,6 +39,7 @@
     waybar
   ];
 
+  services.fwupd.enable = true;
   fileSystems."/mnt/media" = {
     device = "truenas.ergho.org:/mnt/BeepyBoopy/Media";
     fsType = "nfs";

@@ -22,7 +22,7 @@
 
       monitor = [
         "HDMI-A-1,1920x1080@60,0x0,1"
-        "DP-1,2560x1440@144,1920x0,1"
+        "DP-3,2560x1440@144,1920x0,1"
         "DP-2,1920x1200@60,4480x0,1"
       ];
 
@@ -157,16 +157,16 @@
       ];
 
       workspace = [
-        "1, monitor:DP-1"
-        "2, monitor:DP-1"
-        "3, monitor:DP-1"
+        "1, monitor:DP-3"
+        "2, monitor:DP-3"
+        "3, monitor:DP-3"
         "4, monitor:DP-2"
         "5, monitor:DP-2"
         "6, monitor:DP-2"
         "7, monitor:HDMI-A-1"
         "8, monitor:HDMI-A-1"
         "9, monitor:HDMI-A-1"
-        "0, monitor:DP-1"
+        "0, monitor:DP-3"
       ];
       #      windowrule = [
       #        "suppressevent maximize, class:.*"
