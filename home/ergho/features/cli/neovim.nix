@@ -6,6 +6,6 @@
   };
 
   home.packages = [
-    inputs.self.packages.${pkgs.stdenv.system}.neovim-config
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.neovim-config
   ];
 }

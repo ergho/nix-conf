@@ -83,7 +83,6 @@
 
         }
       );
-      system = "x86_64-linux";
 
     in
     {
@@ -96,7 +95,6 @@
       devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
-          inherit system;
           modules = [
             ./hosts/desktop
             self.nixosModules.usb-audio
@@ -113,7 +111,6 @@
           };
         };
         laptop = nixpkgs.lib.nixosSystem {
-          inherit system;
           modules = [
             ./hosts/laptop
             nix-flatpak.nixosModules.nix-flatpak
@@ -128,7 +125,6 @@
           };
         };
         test = nixpkgs.lib.nixosSystem {
-          inherit system;
           modules = [
             ./hosts/test
             inputs.disko.nixosModules.disko

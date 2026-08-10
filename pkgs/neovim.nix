@@ -1,5 +1,5 @@
 {
-  vim = {
+  config.vim = {
     theme = {
       enable = true;
       name = "gruvbox";
