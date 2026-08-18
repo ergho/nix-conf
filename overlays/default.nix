@@ -29,31 +29,31 @@
   #    })
   #  ) brokenPkgs;
 
-  citrix-fix =
-    _final: prev:
-    let
-      # Import the pinned nixpkgs snapshot
-      compatPkgs =
-        import
-          (builtins.fetchTarball {
-            url = "https://github.com/NixOS/nixpkgs/archive/29b6e7097f50955f49a81d2665fb21c94c43df19.tar.gz";
-            sha256 = "0zrkfxj130gbgixgk8yaxk5d9s5ppj667x38n4vys4zxw5r60bjz";
-          })
-          {
-            system = prev.stdenv.hostPlatform.system;
-            config = {
-              allowUnfree = true;
-              allowInsecure = true;
-              permittedInsecurePackages = [
-                "libsoup-2.74.3"
-              ];
-            };
-          };
-    in
-    {
-      # Override citrix-workspace with the one from compatPkgs
-      inherit (compatPkgs) citrix_workspace;
-    };
+  #  citrix-fix =
+  #    _final: prev:
+  #    let
+  #      # Import the pinned nixpkgs snapshot
+  #      compatPkgs =
+  #        import
+  #          (builtins.fetchTarball {
+  #            url = "https://github.com/NixOS/nixpkgs/archive/29b6e7097f50955f49a81d2665fb21c94c43df19.tar.gz";
+  #            sha256 = "0zrkfxj130gbgixgk8yaxk5d9s5ppj667x38n4vys4zxw5r60bjz";
+  #          })
+  #          {
+  #            system = prev.stdenv.hostPlatform.system;
+  #            config = {
+  #              allowUnfree = true;
+  #              allowInsecure = true;
+  #              permittedInsecurePackages = [
+  #                "libsoup-2.74.3"
+  #              ];
+  #            };
+  #          };
+  #    in
+  #    {
+  #      # Override citrix-workspace with the one from compatPkgs
+  #      inherit (compatPkgs) citrix_workspace;
+  #    };
 
   ## Temporary fix for cantarell-fonts https://github.com/NixOS/nixpkgs/issues/535887
   #cantarell-fix =

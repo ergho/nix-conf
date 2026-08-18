@@ -8,7 +8,6 @@
       "--group-directories-first"
       "--no-quotes"
       "--header"
-      "--git-ignore"
       "--classify"
       "--hyperlink"
     ];
@@ -19,6 +18,8 @@
     lt = "eza --tree --level=2";
     ll = "eza -lh --no-user --long";
     la = "eza -lah ";
+    lag = "eza -lah --git-ignore";
+    lg = "eza -lh --git-ignore";
     tree = "eza --tree";
   };
 }
