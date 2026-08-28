@@ -17,10 +17,11 @@
     ../common/global
     ../common/users/ergho
 
-    ../common/optional/regreet.nix
     ../common/optional/pipewire.nix
     ../common/optional/printers.nix
+    ../common/optional/regreet.nix
     ../common/optional/smartcard.nix
+    ../common/optional/tailscale.nix
     ../common/optional/wireless.nix
     ../common/optional/work.nix
     ../common/optional/webcam.nix
@@ -37,7 +38,6 @@
   };
   powerManagement.powertop.enable = true;
 
-  services.tailscale.enable = true;
   services.logind.settings.Login = {
     HandleLidSwitch = "suspend";
     HandleLidSwitchDocked = "lock";

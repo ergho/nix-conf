@@ -58,6 +58,7 @@ in
   environment.systemPackages = [
     pkgs.citrix-workspace
     pkgs.chromium
+    pkgs.mattermost
     teams
     outlook
 
