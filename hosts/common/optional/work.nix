@@ -59,6 +59,7 @@ in
     pkgs.citrix-workspace
     pkgs.chromium
     pkgs.mattermost-desktop
+    pkgs.onlykey
     teams
     outlook
 
