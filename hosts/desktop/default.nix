@@ -24,6 +24,7 @@
     ../common/optional/steam.nix
     ../common/optional/tailscale.nix
     ../common/optional/usbaudio.nix
+    ../common/optional/openvpn.nix
     ../common/optional/work.nix
   ];
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
