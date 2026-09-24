@@ -21,6 +21,7 @@
     ../common/optional/printers.nix
     ../common/optional/regreet.nix
     ../common/optional/smartcard.nix
+    ../common/optional/openvpn.nix
     ../common/optional/tailscale.nix
     ../common/optional/wireless.nix
     ../common/optional/work.nix
