@@ -27,7 +27,7 @@
         DNS_SERVER=$(/run/current-system/sw/bin/cat ${config.sops.secrets.openvpn-dns-server.path})
         DNS_DOMAIN=$(/run/current-system/sw/bin/cat ${config.sops.secrets.openvpn-dns-domain.path})
 
-        ${pkgs.systemd}/bin/resolvectl dns "$INTERFACE" "$DNS_SERVER"
+        ${pkgs.systemd}/bin/resolvectl dns "$INTERFACE" $DNS_SERVER
         ${pkgs.systemd}/bin/resolvectl domain "$INTERFACE" "$DNS_DOMAIN"
       '';
       vpnDownScript = pkgs.writeShellScript "vpn-down" ''
