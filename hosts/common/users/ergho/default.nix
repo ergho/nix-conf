@@ -30,9 +30,28 @@ in
     hashedPasswordFile = config.sops.secrets.ergho-password.path;
   };
 
-  sops.secrets.ergho-password = {
-    sopsFile = ../../secrets.yaml;
-    neededForUsers = true;
+  sops.secrets = {
+    work-a-domain = { };
+    work-a-user = { };
+    ergho-password = {
+      sopsFile = ../../secrets.yaml;
+      neededForUsers = true;
+    };
+  };
+
+  sops.templates."work-a-ssh-config" = {
+    path = "${config.users.users.ergho.home}/.ssh/work-a.conf";
+    owner = config.users.users.ergho.name;
+    group = config.users.users.ergho.group;
+    mode = "0600";
+
+    content = ''
+      Match host ${config.sops.placeholder."work-a-domain"}
+          User ${config.sops.placeholder."work-a-user"}
+          PubkeyAuthentication yes
+          PKCS11Provider ${pkgs.opensc}/lib/pkcs11/opensc-pkcs11.so
+    '';
+
   };
 
   home-manager = {

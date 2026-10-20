@@ -5,9 +5,23 @@
   ...
 }:
 {
-  #programs.ssh = {
-  #  enable = true;
-  #};
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    includes = [ "*.conf" ];
+    #extraConfig = ''
+    #  Include *.conf
+    #'';
+  };
+  services.ssh-agent = {
+    enable = true;
+    pkcs11Whitelist = [
+      "${pkgs.opensc}/lib/opensc-pkcs11.so"
+    ];
+
+    defaultMaximumIdentityLifetime = 28800;
+  };
+
   systemd.user.services = {
     waypipe-server = {
       Unit.Description = "Runs waypipe on startup to support SSH forwarding";
