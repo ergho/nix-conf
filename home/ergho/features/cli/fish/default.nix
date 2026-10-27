@@ -12,6 +12,9 @@ let
 
 in
 {
+  imports = [
+    ./yubikey.nix
+  ];
   home.packages = [ pkgs.bash-completion ];
 
   programs.fish = {
