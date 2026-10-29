@@ -22,6 +22,7 @@ in
       "podman"
       "video"
       "wheel"
+      "wpa_supplicant"
     ];
     packages = [ pkgs.home-manager ];
     openssh.authorizedKeys.keys = lib.splitString "\n" (

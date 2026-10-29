@@ -24,6 +24,8 @@
   sops.secrets.wireless = {
     sopsFile = ../secrets.yaml;
     neededForUsers = true;
+    owner = config.users.users.wpa_sppluicant.name;
+    group = config.users.users.wpa_sppluicant.group;
   };
 
   #environment.etc."${secretPath}" = {
@@ -38,8 +40,8 @@
     enable = true;
     userControlled = true;
     fallbackToWPA2 = false;
+    enableHardening = false;
     # Declarative
-    #secretsFile = "/etc/${secretPath}";
     secretsFile = config.sops.secrets.wireless.path;
     networks = {
       "homenet" = {
@@ -56,12 +58,7 @@
     # Imperative
     allowAuxiliaryImperativeNetworks = true;
 
-    # https://discourse.nixos.org/t/is-networking-usercontrolled-working-with-wpa-gui-for-anyone/29659
-    #  ctrl_interface=DIR=/run/wpa_supplicant GROUP=${config.users.groups.network.name}
-    #  update_config=1
-    extraConfig = ''
-      p2p_disabled=1
-    '';
+    extraConfig = "p2p_disabled=1";
   };
 
   # Ensure group exists
