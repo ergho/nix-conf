@@ -14,15 +14,14 @@
       bind =
         let
           hyprshot = lib.getExe pkgs.hyprshot;
+          screenshotDir = "$HOME/screenshots";
         in
         [
-          "SUPER,F,exec,${hyprshot} -m output"
-
           # Region select screenshot
-          "SUPER,R,exec,${hyprshot} -m region"
+          "SUPER,R,exec,${hyprshot} -m region -o ${screenshotDir}"
 
           # Window screenshot
-          "SUPER,W,exec,${hyprshot} -m window"
+          "SUPER,W,exec,${hyprshot} -m window -o ${screenshotDir}"
         ];
 
     };

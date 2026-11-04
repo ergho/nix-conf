@@ -6,7 +6,7 @@
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
-    #./hyprshot.nix
+    ./hyprshot.nix
     #    ./hyprpaper.nix
   ];
 
