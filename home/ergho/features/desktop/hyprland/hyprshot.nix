@@ -18,7 +18,7 @@
         in
         [
           # Region select screenshot
-          "SUPER,R,exec,${hyprshot} -m region -o ${screenshotDir}"
+          "SUPER,F,exec,${hyprshot} -m region -o ${screenshotDir}"
 
           # Window screenshot
           "SUPER,W,exec,${hyprshot} -m window -o ${screenshotDir}"
