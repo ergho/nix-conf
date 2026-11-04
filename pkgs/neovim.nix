@@ -1,5 +1,30 @@
+{ lib, ... }:
 {
   config.vim = {
+    keymaps = [
+      {
+        key = "<leader>uf";
+        mode = "n";
+        desc = "Toggle format on save";
+        action = "<cmd>lua vim.b.disable_autoformat = not vim.b.disable_autoformat; print(vim.b.disable_autoformat and 'Formatting disabled' or 'Formatting enabled')<CR>";
+      }
+    ];
+    formatter.conform-nvim = {
+      enable = true;
+
+      setupOpts.format_on_save = lib.generators.mkLuaInline ''
+        function(bufnr)
+          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+          end
+
+          return {
+            timeout_ms = 500,
+            lsp_format = "fallback",
+          }
+        end
+      '';
+    };
     theme = {
       enable = true;
       name = "gruvbox";
@@ -39,7 +64,7 @@
 
     lsp = {
       enable = true;
-      formatOnSave = true;
+      formatOnSave = false;
     };
     languages = {
       enableFormat = true;
