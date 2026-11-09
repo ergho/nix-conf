@@ -17,6 +17,7 @@
     ../common/global
     ../common/users/ergho
 
+    ../common/optional/certs.nix
     ../common/optional/pipewire.nix
     ../common/optional/printers.nix
     ../common/optional/regreet.nix

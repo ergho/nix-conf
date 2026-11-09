@@ -18,6 +18,7 @@
     ../common/users/ergho
     # Optional components will be added here like example
     # ../common/optional/...
+    ../common/optional/certs.nix
     ../common/optional/nfs.nix
     ../common/optional/regreet.nix
     ../common/optional/pipewire.nix
