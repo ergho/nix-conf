@@ -12,9 +12,7 @@
 
   xdg.portal = {
     extraPortals = [
-      (pkgs.xdg-desktop-portal-hyprland.override {
-        hyprland = config.wayland.windowManager.hyprland.package;
-      })
+      pkgs.xdg-desktop-portal-hyprland
     ];
     config.hyprland = {
       default = [

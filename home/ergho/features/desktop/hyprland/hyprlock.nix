@@ -67,15 +67,15 @@
     };
   };
   wayland.windowManager.hyprland = {
-    settings = {
-      bind =
-        let
-          hyprlock = lib.getExe config.programs.hyprlock.package;
-        in
-        [
-          "SUPER,backspace,exec,${hyprlock}"
+    #settings = {
+    #  bind =
+    #    let
+    #      hyprlock = lib.getExe config.programs.hyprlock.package;
+    #    in
+    #    [
+    #      "SUPER,backspace,exec,${hyprlock}"
 
-        ];
-    };
+    #    ];
+    #};
   };
 }
